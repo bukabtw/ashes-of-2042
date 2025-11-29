@@ -1,19 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://1liicxweqngc"]
+[gd_scene load_steps=5 format=3 uid="uid://1liicxweqngc"]
 
 [ext_resource type="Script" uid="uid://dv03by7nb22t8" path="res://scripts/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://jem18j8m52yi" path="res://icon.svg" id="2_dovo2"]
+[ext_resource type="Texture2D" uid="uid://dg85jpxvg4rt6" path="res://assets/models/player/bukabtw.png" id="2_dovo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
-size = Vector2(129, 130)
+size = Vector2(31.5, 69.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(35, 69)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8afob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.5000029, -28.499996)
+scale = Vector2(1.8529412, 2.3823528)
 texture = ExtResource("2_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(2, -35.125)
 shape = SubResource("RectangleShape2D_dovo2")
 
 [node name="PlayerController" type="Node" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(1, -35)
+shape = SubResource("RectangleShape2D_gmlin")

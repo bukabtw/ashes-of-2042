@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bch4h5gwfydxc"]
+
+[ext_resource type="Texture2D" uid="uid://jem18j8m52yi" path="res://icon.svg" id="1_yokrj"]
+[ext_resource type="PackedScene" uid="uid://c48hkbhej1wgp" path="res://scenes/enemies/zombie.tscn" id="2_ujbsv"]
+[ext_resource type="PackedScene" uid="uid://1liicxweqngc" path="res://scenes/player/player.tscn" id="3_37g75"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(543, 341)
+scale = Vector2(8.253905, 5.1406245)
+texture = ExtResource("1_yokrj")
+
+[node name="Zombie" parent="." instance=ExtResource("2_ujbsv")]
+position = Vector2(556, 327)
+
+[node name="Player" parent="." instance=ExtResource("3_37g75")]
+position = Vector2(255, 352)
