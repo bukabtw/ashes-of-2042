@@ -1,0 +1,8 @@
+CharacterBody2D
+Node
+CollisionShape2D
+Sprite2D
+Camera3D
+CollisionShape3D
+MeshInstance3D
+CharacterBody3D
