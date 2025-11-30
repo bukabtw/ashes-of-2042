@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pt6v"]
 size = Vector2(27, 64.75)
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_gl10n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

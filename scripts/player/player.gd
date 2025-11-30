@@ -1,32 +1,64 @@
 extends CharacterBody2D
 
+enum PlayerDirection { DOWN, UP, LEFT, RIGHT }
+var current_direction: PlayerDirection = PlayerDirection.DOWN
+
 @export var speed: int = 200
 @export var health: int = 100
-@onready var sprite = $Sprite2D
+@export var attack_damage: int = 10
 
-func _physics_process(delta):
-	# Движение (оставляем как было)
-	var input_dir = Vector2.ZERO
-	input_dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	input_dir.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var attack_range = $AttackRange
+@onready var state_machine = $PlayerStateMachine
+
+const PlayerIdleState = preload("res://scripts/player/states/player_idle.gd")
+const PlayerMoveState = preload("res://scripts/player/states/player_move.gd") 
+const PlayerAttackState = preload("res://scripts/player/states/player_attack.gd")
+const PlayerHurtState = preload("res://scripts/player/states/player_hurt.gd")
+
+func _ready():
+	setup_state_machine()
+
+func setup_state_machine():
+	# Создаем состояния
+	var idle_state = PlayerIdleState.new()
+	idle_state.setup_state(self, state_machine)
 	
-	if input_dir.length() > 0:
-		input_dir = input_dir.normalized()
-		velocity = input_dir * speed
-		if abs(input_dir.x) > abs(input_dir.y):
-			sprite.flip_h = input_dir.x < 0
-	else:
-		velocity = Vector2.ZERO
+	var move_state = PlayerMoveState.new()
+	move_state.setup_state(self, state_machine)
 	
-	move_and_slide()
+	var attack_state = PlayerAttackState.new()
+	attack_state.setup_state(self, state_machine)
+	
+	var hurt_state = PlayerHurtState.new()
+	hurt_state.setup_state(self, state_machine)
+	
+	# Инициализируем state machine
+	state_machine.init_state("idle", idle_state)
+	state_machine.init_state("move", move_state)
+	state_machine.init_state("attack", attack_state)
+	state_machine.init_state("hurt", hurt_state)
+	
+	state_machine.transition_to("idle")
 
 func _input(event):
-	if event.is_action_pressed("attack"):
-		attack()
+	state_machine.process_input(event)
 
-func attack():
-	print("Атакую!")
-	var attack_range = $AttackRange
-	for body in attack_range.get_overlapping_bodies():
-		if body.is_in_group("enemies"):
-			body.take_damage(10)
+func _process(delta):
+	state_machine.process_frame(delta)
+
+func _physics_process(delta):
+	state_machine.process_physics(delta)
+
+func take_damage(damage: int):
+	# Добавляем проверку current_state
+	if state_machine.current_state and state_machine.current_state.name != "hurt":
+		health -= damage
+		state_machine.transition_to("hurt")
+		
+		if health <= 0:
+			die()
+
+func die():
+	print("Игрок умер!")
+	get_tree().reload_current_scene()

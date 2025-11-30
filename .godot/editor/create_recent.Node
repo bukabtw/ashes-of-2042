@@ -1,8 +1,9 @@
+AnimatedSprite2D
+Node
 CollisionShape2D
 Area2D
 CharacterBody2D
 Sprite2D
-Node
 Camera3D
 CollisionShape3D
 MeshInstance3D

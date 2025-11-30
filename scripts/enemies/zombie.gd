@@ -18,7 +18,6 @@ func _physics_process(_delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	
-	# Поворот в сторону игрока
 	if direction.x != 0:
 		$Sprite2D.flip_h = direction.x < 0
 	
@@ -26,5 +25,7 @@ func _physics_process(_delta):
 
 func take_damage(damage: int):
 	health -= damage
+	print("Зомби получил урон: ", health, "/30")
 	if health <= 0:
+		print("Зомби умер!")
 		queue_free()

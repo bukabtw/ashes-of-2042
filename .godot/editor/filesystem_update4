@@ -1,1 +1,12 @@
+res://scenes/player/player.tscn
+res://scripts/enemies/zombie.gd
+res://scripts/player/player-state-machine.gd
+res://scripts/player/player_state.gd
+res://scripts/player/states/player_idle.gd
+res://scripts/player/states/player_move.gd
+res://scripts/player/states/player_hurt.gd
+res://scripts/player/player.gd
+res://scripts/player/states/player_attack.gd
+res://scripts/player/player_state_machine.gd
+res://scripts/player/states/player_state.gd
 res://scenes/world/test.tscn
