@@ -1,7 +1,7 @@
 AnimatedSprite2D
-Node
 CollisionShape2D
 Area2D
+Node
 CharacterBody2D
 Sprite2D
 Camera3D

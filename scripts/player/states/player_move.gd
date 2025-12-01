@@ -1,7 +1,7 @@
 extends PlayerState
 
 func get_animation_name(direction: String) -> String:
-	return "move_" + direction + "_w_knife"
+	return "move_" + direction
 
 func process_physics(_delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -17,6 +17,8 @@ func process_physics(_delta):
 		
 		play_animation()
 	else:
+		# ⬇️ ВАЖНО: Сохраняем текущее направление при переходе в idle
+		player.last_movement_direction = player.current_direction
 		state_machine.transition_to("idle")
 	
 	player.move_and_slide()

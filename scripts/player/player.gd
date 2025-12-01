@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum PlayerDirection { DOWN, UP, LEFT, RIGHT }
 var current_direction: PlayerDirection = PlayerDirection.DOWN
+var last_movement_direction: PlayerDirection = PlayerDirection.DOWN  # ⬅️ ДОБАВЬ ЭТУ СТРОКУ
 
 @export var speed: int = 200
 @export var health: int = 100
@@ -17,6 +18,11 @@ const PlayerAttackState = preload("res://scripts/player/states/player_attack.gd"
 const PlayerHurtState = preload("res://scripts/player/states/player_hurt.gd")
 
 func _ready():
+	var collision = $CollisionShape2D
+	collision.shape = RectangleShape2D.new()
+	collision.shape.size = Vector2(24, 44)
+	collision.position = Vector2(0, 10)
+	
 	setup_state_machine()
 
 func setup_state_machine():
@@ -49,6 +55,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	state_machine.process_physics(delta)
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("Игрок столкнулся с: ", collision.get_collider().name)
 
 func take_damage(damage: int):
 	# Добавляем проверку current_state
