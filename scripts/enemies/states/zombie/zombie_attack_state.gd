@@ -18,7 +18,6 @@ func perform_attack():
 			var actual_damage = enemy.attack_damage * zombie_attack_multiplier
 			enemy.player.take_damage(actual_damage)
 		else:
-			# Игрок убежал - возвращаемся в погоню
 			state_machine.transition_to("chase")
 
 func process_physics(delta):

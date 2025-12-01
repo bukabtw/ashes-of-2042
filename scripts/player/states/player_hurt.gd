@@ -5,7 +5,6 @@ var hurt_duration: float = 0.5
 
 func enter():
 	hurt_timer = 0.0
-	# Можно добавить мигание или эффект получения урона
 
 func process_physics(delta):
 	hurt_timer += delta

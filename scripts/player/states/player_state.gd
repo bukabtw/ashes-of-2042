@@ -18,14 +18,14 @@ func enter():
 func exit():
 	pass
 
-func process_input(_event: InputEvent):
-	pass
-
 func process_frame(_delta: float):
 	pass
 
+func process_input(_event: InputEvent):
+	pass
+
 func process_physics(_delta: float):
-	pass  # ⬅️ ВАЖНО: добавляем пустой метод!
+	pass
 
 func play_animation():
 	var anim_name = get_animation_name(get_direction_suffix())
@@ -33,9 +33,12 @@ func play_animation():
 		player.animated_sprite.play(anim_name)
 
 func get_direction_suffix() -> String:
-	match player.current_direction:
-		0: return "back"    # UP
-		1: return "front"   # DOWN
-		2: return "left"    # LEFT  
-		3: return "right"   # RIGHT
-		_: return "front"
+	if player:
+		# Используем числовые значения (0, 1, 2, 3)
+		match int(player.current_direction):
+			0: return "back"    # DOWN = 0 = вниз = BACK
+			1: return "front"   # UP = 1 = вверх = FRONT
+			2: return "left"    # LEFT = 2
+			3: return "right"   # RIGHT = 3
+			_: return "back"
+	return "back"

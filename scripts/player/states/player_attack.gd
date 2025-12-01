@@ -13,10 +13,17 @@ func enter():
 	play_animation()
 
 func perform_attack():
+	print("\n=== ИГРОК АТАКУЕТ ===")
 	var enemies = player.attack_range.get_overlapping_bodies()
+	print("В зоне атаки: ", enemies.size(), " врагов")
+	
 	for body in enemies:
+		print("Обнаружен: ", body.name, " (группы: ", body.get_groups(), ")")
 		if body.is_in_group("enemies"):
+			print("Наношу урон зомби: ", player.attack_damage)
 			body.take_damage(player.attack_damage)
+		else:
+			print(body.name, " не в группе enemies")
 
 func process_physics(delta):
 	attack_timer += delta

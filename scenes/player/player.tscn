@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://1liicxweqngc"]
+[gd_scene load_steps=108 format=3 uid="uid://1liicxweqngc"]
 
 [ext_resource type="Script" uid="uid://dv03by7nb22t8" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://bxljryg4v3y3n" path="res://assets/models/player/bukabtw.png" id="2_qek5x"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://epxw7dvl2pi5" path="res://scripts/player/states/player_move.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://cgm710xlyt204" path="res://scripts/player/states/player_attack.gd" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://caxxdhmm3t1fl" path="res://scripts/player/states/player_hurt.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://dheknet3y6q5b" path="res://scripts/player/states/player_death.gd" id="8_5gtgg"]
+[ext_resource type="Script" uid="uid://dq8jlknbsbf0c" path="res://scripts/global/health_component.gd" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trum3"]
 atlas = ExtResource("2_qek5x")
@@ -784,11 +786,14 @@ shape = SubResource("RectangleShape2D_0owmy")
 [node name="PlayerController" type="Node" parent="."]
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-1, -14)
 shape = SubResource("RectangleShape2D_gmlin")
-debug_color = Color(0.883652, 0.21018004, 0.64876986, 0.41960785)
 
 [node name="PlayerStateMachine" type="Node" parent="."]
 script = ExtResource("3_gmlin")
@@ -804,3 +809,9 @@ script = ExtResource("6_0owmy")
 
 [node name="HurtState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_75vfm")
+
+[node name="DeathState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("8_5gtgg")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("8_qek5x")

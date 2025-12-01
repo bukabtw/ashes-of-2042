@@ -34,10 +34,8 @@ func play_afk_animation():
 		player.animated_sprite.play(afk_anim_name)
 		await player.animated_sprite.animation_finished
 		
-		# Сбрасываем таймер для следующего проигрывания через 2 минуты
 		idle_timer = 0.0
 	
-	# Возвращаемся к обычному idle
 	play_normal_idle()
 
 func get_animation_name(direction: String) -> String:

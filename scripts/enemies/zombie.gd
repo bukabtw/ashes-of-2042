@@ -1,11 +1,26 @@
 extends EnemyBase
 
-# ⬇️ ИСПРАВЛЯЕМ ПУТИ - добавляем _state
 const ZombieIdleState = preload("res://scripts/enemies/states/zombie/zombie_idle_state.gd")
 const ZombieChaseState = preload("res://scripts/enemies/states/zombie/zombie_chase_state.gd")
 const ZombieAttackState = preload("res://scripts/enemies/states/zombie/zombie_attack_state.gd")
 const ZombieHurtState = preload("res://scripts/enemies/states/zombie/zombie_hurt_state.gd")
 const ZombieDeathState = preload("res://scripts/enemies/states/zombie/zombie_death_state.gd")
+
+@onready var health_component = $HealthComponent
+
+func _ready():
+	add_to_group("enemies")
+	
+	super._ready()
+	
+	if health_component:
+		health_component.max_health = health
+		health_component.current_health = health
+		health_component.health_depleted.connect(_on_health_depleted)
+	else:
+		print("Внимание: HealthComponent не найден на зомби!")
+	
+	setup_state_machine()
 
 func setup_state_machine():
 	var idle_state = ZombieIdleState.new()
@@ -30,30 +45,23 @@ func setup_state_machine():
 	state_machine.init_state("death", death_state)
 	
 	state_machine.transition_to("idle")
-	
-func _physics_process(delta):
-	# ВЫЗЫВАЕМ State Machine чтобы состояния работали
-	state_machine.process_physics(delta)
-	
-	# Проверка столкновений (опционально)
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		print("Зомби столкнулся с: ", collision.get_collider().name)
-	# Проверка столкновений
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		print("Зомби столкнулся с: ", collision.get_collider().name)
 
-func _ready():
-	# Принудительно включаем обработку
-	set_physics_process(true)
-	set_process(true)
-	
-	player = get_tree().get_first_node_in_group("player")
-	print("ЗОМБИ: Игрок найден - ", player != null)
-	print("ЗОМБИ: Physics process включен - ", is_physics_processing())
-	
-	setup_state_machine()
-	
-	# Проверяем что состояния создались
-	print("ЗОМБИ: Состояния инициализированы")
+func take_damage(damage: int):
+	if health_component:
+		health_component.take_damage(damage)
+		
+		var current_state = state_machine.current_state.name if state_machine.current_state else ""
+		
+		if current_state != "death" and current_state != "attack":
+			state_machine.transition_to("hurt")
+	else:
+		health -= damage
+		
+		if state_machine.current_state and state_machine.current_state.name != "hurt":
+			state_machine.transition_to("hurt")
+		
+		if health <= 0:
+			state_machine.transition_to("death")
+
+func _on_health_depleted():
+	state_machine.transition_to("death")

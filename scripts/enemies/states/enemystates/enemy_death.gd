@@ -6,5 +6,5 @@ func enter():
 	await enemy.animated_sprite.animation_finished
 	enemy.queue_free()
 
-func get_animation_name(direction: String) -> String:
-	return "death_" + direction
+func get_animation_name(_direction: String) -> String:
+	return "death"

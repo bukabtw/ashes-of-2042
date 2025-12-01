@@ -11,13 +11,12 @@ func process_physics(_delta):
 		player.velocity = input_dir * player.speed
 
 		if abs(input_dir.x) > abs(input_dir.y):
-			player.current_direction = 3 if input_dir.x > 0 else 2  # RIGHT/LEFT
+			player.current_direction = 3 if input_dir.x > 0 else 2
 		else:
-			player.current_direction = 0 if input_dir.y > 0 else 1  # DOWN/UP
+			player.current_direction = 0 if input_dir.y > 0 else 1
 		
 		play_animation()
 	else:
-		# ⬇️ ВАЖНО: Сохраняем текущее направление при переходе в idle
 		player.last_movement_direction = player.current_direction
 		state_machine.transition_to("idle")
 	
