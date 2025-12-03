@@ -8,7 +8,6 @@ func enter():
 	
 	play_animation()
 	
-	spawn_death_effects()
 	
 	if enemy.animated_sprite.sprite_frames.has_animation("death"):
 		await enemy.animated_sprite.animation_finished
@@ -22,6 +21,3 @@ func get_animation_name(direction: String) -> String:
 		return "death"
 	else:
 		return "hurt_" + direction
-
-func spawn_death_effects():
-	print("Зомби умер! Должен быть эффект крови")

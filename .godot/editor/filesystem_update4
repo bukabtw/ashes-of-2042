@@ -1,2 +1,9 @@
 res://scenes/world/bunker.tscn
-res://scenes/world/bunker.gdshader
+res://scripts/global/damage_flash.gd
+res://scenes/player/player.tscn
+res://scripts/enemies/enemy_base.gd
+res://scripts/player/player.gd
+res://scenes/enemies/zombie.tscn
+res://scripts/enemies/states/zombie/zombie_hurt_state.gd
+res://scripts/enemies/states/zombie/zombie_death_state.gd
+res://scripts/enemies/zombie.gd

@@ -42,6 +42,18 @@ func take_damage(damage: int):
 	if health <= 0:
 		state_machine.transition_to("death")
 
+func flash_red_hurt():
+	if not animated_sprite:
+		return
+	
+	var tween = create_tween()
+	var original_modulate = animated_sprite.modulate
+	
+	tween.tween_property(animated_sprite, "modulate", 
+		Color(1, 0.3, 0.3, 1), 0.05)
+	tween.tween_property(animated_sprite, "modulate", 
+		original_modulate, 0.05)
+
 func die():
 	queue_free()
 

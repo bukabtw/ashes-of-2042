@@ -10,6 +10,7 @@ func enter():
 	var knockback_direction = -enemy.get_direction_towards_player()
 	enemy.velocity = knockback_direction * 100.0
 	
+	enemy.flash_red_hurt()
 
 func get_animation_name(direction: String) -> String:
 	var hurt_anim = "hurt_" + direction

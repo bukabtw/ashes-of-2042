@@ -49,19 +49,15 @@ func setup_state_machine():
 func take_damage(damage: int):
 	if health_component:
 		health_component.take_damage(damage)
-		
-		var current_state = state_machine.current_state.name if state_machine.current_state else ""
-		
-		if current_state != "death" and current_state != "attack":
-			state_machine.transition_to("hurt")
+		flash_red_hurt()
 	else:
 		health -= damage
-		
-		if state_machine.current_state and state_machine.current_state.name != "hurt":
-			state_machine.transition_to("hurt")
-		
+		flash_red_hurt()
 		if health <= 0:
 			state_machine.transition_to("death")
+		elif state_machine.current_state and state_machine.current_state.name != "hurt":
+			state_machine.transition_to("hurt")
 
 func _on_health_depleted():
+	print("Zombie health depleted! Transitioning to death")
 	state_machine.transition_to("death")

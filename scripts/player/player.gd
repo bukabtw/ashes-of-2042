@@ -68,11 +68,26 @@ func _physics_process(delta):
 func take_damage(damage: int):
 	if health_component:
 		health_component.take_damage(damage)
+		
+		flash_red()
+		
 		if state_machine.current_state and \
 		   state_machine.current_state.name != "hurt" and \
 		   state_machine.current_state.name != "death" and \
 		   health_component.current_health > 0:
 			state_machine.transition_to("hurt")
+
+func flash_red():
+	if not animated_sprite:
+		return
+	
+	var original_modulate = animated_sprite.modulate
+	animated_sprite.modulate = Color(1, 0.3, 0.3, 1)
+	
+	await get_tree().create_timer(0.1).timeout
+	
+	if animated_sprite:
+		animated_sprite.modulate = original_modulate
 
 func _on_health_depleted():
 	print("Игрок умер!")
