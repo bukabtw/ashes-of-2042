@@ -1,4 +1,5 @@
 extends EnemyBase
+class_name Zombie
 
 const ZombieIdleState = preload("res://scripts/enemies/states/zombie/zombie_idle_state.gd")
 const ZombieChaseState = preload("res://scripts/enemies/states/zombie/zombie_chase_state.gd")
