@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnyke0ws07i70"]
+
+[ext_resource type="Texture2D" uid="uid://dcuma3755gg6d" path="res://assets/models/npc/bald_dad.png" id="1_f5kff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5kff"]
+atlas = ExtResource("1_f5kff")
+region = Rect2(0, 1536, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62ll8"]
+atlas = ExtResource("1_f5kff")
+region = Rect2(64, 1536, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_locpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5kff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62ll8")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5kff"]
+size = Vector2(57, 124)
+
+[node name="Dad" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(28.499996, -45.000004)
+scale = Vector2(1.8906249, 2.4062498)
+sprite_frames = SubResource("SpriteFrames_locpe")
+animation = &"idle_back"
+frame_progress = 0.5029209
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, -30)
+shape = SubResource("RectangleShape2D_f5kff")

@@ -1,1 +1,4 @@
+res://scenes/npc/dad.tscn
 res://scenes/world/bunker.tscn
+res://scenes/player/player.tscn
+res://scripts/player/player.gd

@@ -815,3 +815,5 @@ script = ExtResource("8_5gtgg")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("8_qek5x")
+
+[node name="Camera2D" type="Camera2D" parent="."]

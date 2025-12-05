@@ -11,6 +11,7 @@ var last_movement_direction: PlayerDirection = PlayerDirection.DOWN
 @onready var attack_range = $AttackRange
 @onready var state_machine = $PlayerStateMachine
 @onready var health_component = $HealthComponent
+@onready var camera = $Camera2D
 
 const PlayerIdleState = preload("res://scripts/player/states/player_idle.gd")
 const PlayerMoveState = preload("res://scripts/player/states/player_move.gd") 
@@ -23,6 +24,12 @@ func _ready():
 	collision.shape = RectangleShape2D.new()
 	collision.shape.size = Vector2(24, 44)
 	collision.position = Vector2(0, 10)
+
+	if camera:
+		camera.make_current()
+		camera.position_smoothing_enabled = true
+		camera.position_smoothing_speed = 4.0
+		camera.zoom = Vector2(1.5, 1.5)
 	
 	var attack_range_node = $AttackRange
 	if attack_range_node:
@@ -30,7 +37,11 @@ func _ready():
 		attack_range_node.collision_mask = 1 << 1
 	
 	setup_state_machine()
-	health_component.health_depleted.connect(_on_health_depleted)
+	
+	if health_component:
+		health_component.health_depleted.connect(_on_health_depleted)
+	else:
+		push_error("HealthComponent не найден!")
 
 func setup_state_machine():
 	var idle_state = PlayerIdleState.new()
