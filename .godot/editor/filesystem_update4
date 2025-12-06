@@ -1,6 +1,2 @@
 res://scenes/world/bunker.tscn
-res://scenes/npc/dad.tscn
-res://scenes/enemies/zombie-cage.tscn
-res://scripts/enemies/zombie.gd
-res://scripts/enemies/states/zombie/zombie_cage.gd
-res://scenes/npc/gunner.tscn
+res://scenes/npc/armorer.tscn
