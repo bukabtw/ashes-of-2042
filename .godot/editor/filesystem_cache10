@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764987906
+::res://::1764996857
 icon.svg::CompressedTexture2D::640733887003666100::1764425724::1764425729::1::::<><><>0<>0<>564febf4f715136893575bb74c2adc2e<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1764956296
 ::res://assets/env/::1764647032
@@ -18,7 +18,7 @@ table1.png::CompressedTexture2D::975837401404206047::1764956803::1764956804::1::
 zombie2.png::CompressedTexture2D::1960422613420761921::1764457755::1764458091::1::::<><><>0<>0<>0213189e33ffcce27c6057ca51e5042f<>res://.godot/imported/zombie2.png-ddebf022833990e16df77aa781e96bca.ctex::
 zombie.png::CompressedTexture2D::5073954653187724192::1764457181::1764457291::1::::<><><>0<>0<>aba1243b7502bf44d98c59b5e04b11ca<>res://.godot/imported/zombie.png-9843421f599ffb4f774211c5817d4dc8.ctex::
 zombie_man.png::CompressedTexture2D::7504558567050767438::1764538923::1764538941::1::::<><><>0<>0<>f5b00f1f779573556c5ac85ef932f7eb<>res://.godot/imported/zombie_man.png-fcc96546a01f2019a4c1ff939d5ce0f2.ctex::
-::res://assets/models/npc/::1764991801
+::res://assets/models/npc/::1764991803
 armorer.png::CompressedTexture2D::8047663190721049610::1764991801::1764991803::1::::<><><>0<>0<>22f6a9497050bb772b041af17d00c6c9<>res://.godot/imported/armorer.png-d95629a06a56faf6d9e72e0ee9cf802d.ctex::
 bald_dad.png::CompressedTexture2D::7341657418840702985::1764976204::1764976207::1::::<><><>0<>0<>63cc4306e9af4298d0700de60ff32375<>res://.godot/imported/bald_dad.png-5bdf8fd4a7e6691578babe5de1e17d23.ctex::
 gunner.png::CompressedTexture2D::4893294837227646748::1764976753::1764976756::1::::<><><>0<>0<>68c47eebf86e0ef7d222f748cdc9e1bf<>res://.godot/imported/gunner.png-1422055dfad6bd60d0616171652ab4e5.ctex::
@@ -36,13 +36,14 @@ grey.png::CompressedTexture2D::6614418239430624374::1764771616::1764771617::1:::
 zombie-cage.tscn::PackedScene::4752822262885388385::1764962485::0::1::::<><><>0<>0<><>::uid://kv13y30fkuv1::::res://scripts/enemies/states/zombie/zombie_cage.gd<>uid://de6i8osq6sfna::::res://assets/models/enemies/zombie_man.png<>uid://cdr1mksb3vbr::::res://scripts/enemies/enemy_state_machine.gd<>uid://kmy5q7lmrdl8::::res://scripts/enemies/states/zombie/zombie_idle_state.gd<>uid://j6l04l7gfuaa::::res://scripts/enemies/states/zombie/zombie_chase_state.gd<>uid://b68apqalagt1m::::res://scripts/enemies/states/zombie/zombie_attack_state.gd<>uid://c1liyhij1kvxr::::res://scripts/enemies/states/zombie/zombie_hurt_state.gd<>uid://cushs81ip2dlg::::res://scripts/enemies/states/zombie/zombie_death_state.gd<>uid://dq8jlknbsbf0c::::res://scripts/global/health_component.gd
 zombie.tscn::PackedScene::6876885239193325395::1764767145::0::1::::<><><>0<>0<><>::uid://cu5wq370imenm::::res://scripts/enemies/zombie.gd<>uid://de6i8osq6sfna::::res://assets/models/enemies/zombie_man.png<>uid://cdr1mksb3vbr::::res://scripts/enemies/enemy_state_machine.gd<>uid://kmy5q7lmrdl8::::res://scripts/enemies/states/zombie/zombie_idle_state.gd<>uid://j6l04l7gfuaa::::res://scripts/enemies/states/zombie/zombie_chase_state.gd<>uid://b68apqalagt1m::::res://scripts/enemies/states/zombie/zombie_attack_state.gd<>uid://cushs81ip2dlg::::res://scripts/enemies/states/zombie/zombie_death_state.gd<>uid://c1liyhij1kvxr::::res://scripts/enemies/states/zombie/zombie_hurt_state.gd<>uid://dq8jlknbsbf0c::::res://scripts/global/health_component.gd
 ::res://scenes/global/::1764650264
-::res://scenes/npc/::1764976852
+::res://scenes/npc/::1764991917
+armorer.tscn::PackedScene::5359912172751837524::1764991917::0::1::::<><><>0<>0<><>::uid://dmwl3psm8fthy::::res://assets/models/npc/armorer.png
 dad.tscn::PackedScene::8121877745496407881::1764961373::0::1::::<><><>0<>0<><>::uid://dcuma3755gg6d::::res://assets/models/npc/bald_dad.png
 gunner.tscn::PackedScene::7923708977649782489::1764976852::0::1::::<><><>0<>0<><>::uid://cbyl362wriu81::::res://assets/models/npc/gunner.png
 ::res://scenes/player/::1764957225
 player.tscn::PackedScene::1848118253759641026::1764957225::0::1::::<><><>0<>0<><>::uid://dv03by7nb22t8::::res://scripts/player/player.gd<>uid://bxljryg4v3y3n::::res://assets/models/player/bukabtw.png<>uid://cdo30b3r238j0::::res://scripts/player/player_state_machine.gd<>uid://i33wvo52e4yc::::res://scripts/player/states/player_idle.gd<>uid://epxw7dvl2pi5::::res://scripts/player/states/player_move.gd<>uid://cgm710xlyt204::::res://scripts/player/states/player_attack.gd<>uid://caxxdhmm3t1fl::::res://scripts/player/states/player_hurt.gd<>uid://dheknet3y6q5b::::res://scripts/player/states/player_death.gd<>uid://dq8jlknbsbf0c::::res://scripts/global/health_component.gd
-::res://scenes/world/::1764991488
-bunker.tscn::PackedScene::4063215216117677562::1764991488::0::1::::<><><>0<>0<><>::uid://cu3efbbxnr54::::res://assets/tiles/blocks.png<>uid://c1icrclt3yc3w::::res://assets/tiles/grey.png<>uid://dq8d5na5038e3::::res://assets/env/ladder_bunker.png<>uid://1liicxweqngc::::res://scenes/player/player.tscn<>uid://dnyke0ws07i70::::res://scenes/npc/dad.tscn<>uid://n5x5t0gavnd4::::res://assets/furniture/table1.png<>uid://bfbqljwtmwg3p::::res://assets/furniture/chest1t.png<>uid://bc04wftio1dug::::res://assets/furniture/cage.png<>uid://b8ykj2ikr02kj::::res://scenes/enemies/zombie-cage.tscn<>uid://1dvo5s2rqdxe::::res://assets/furniture/gunwall.png<>uid://dqnuwkj5mcd81::::res://assets/furniture/gunnertable.png<>uid://dk5klgsvfiugn::::res://scenes/npc/gunner.tscn<>uid://dgctgmp1hcsl8::::res://assets/furniture/armorwall.png<>uid://cuwkmhgi03n3f::::res://assets/furniture/armorertable.png
+::res://scenes/world/::1764992056
+bunker.tscn::PackedScene::4063215216117677562::1764992056::0::1::::<><><>0<>0<><>::uid://cu3efbbxnr54::::res://assets/tiles/blocks.png<>uid://c1icrclt3yc3w::::res://assets/tiles/grey.png<>uid://dq8d5na5038e3::::res://assets/env/ladder_bunker.png<>uid://1liicxweqngc::::res://scenes/player/player.tscn<>uid://dnyke0ws07i70::::res://scenes/npc/dad.tscn<>uid://n5x5t0gavnd4::::res://assets/furniture/table1.png<>uid://bfbqljwtmwg3p::::res://assets/furniture/chest1t.png<>uid://bc04wftio1dug::::res://assets/furniture/cage.png<>uid://b8ykj2ikr02kj::::res://scenes/enemies/zombie-cage.tscn<>uid://1dvo5s2rqdxe::::res://assets/furniture/gunwall.png<>uid://dqnuwkj5mcd81::::res://assets/furniture/gunnertable.png<>uid://dk5klgsvfiugn::::res://scenes/npc/gunner.tscn<>uid://dgctgmp1hcsl8::::res://assets/furniture/armorwall.png<>uid://cuwkmhgi03n3f::::res://assets/furniture/armorertable.png<>uid://cimm781kdrdj5::::res://scenes/npc/armorer.tscn
 test.tscn::PackedScene::2543023894571685356::1764650265::0::1::::<><><>0<>0<><>::uid://c48hkbhej1wgp::::res://scenes/enemies/zombie.tscn<>uid://1liicxweqngc::::res://scenes/player/player.tscn
 ::res://scripts/::1764600773
 ::res://scripts/enemies/::1764962481
