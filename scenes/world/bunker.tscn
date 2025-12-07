@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://onxswe5bc8ec" path="res://scenes/npc/scientist.tscn" id="10_elexu"]
 [ext_resource type="Texture2D" uid="uid://dqnuwkj5mcd81" path="res://assets/furniture/gunnertable.png" id="11_a2ef7"]
 [ext_resource type="PackedScene" uid="uid://dk5klgsvfiugn" path="res://scenes/npc/gunsmith.tscn" id="12_73es8"]
-[ext_resource type="Texture2D" uid="uid://dgctgmp1hcsl8" path="res://assets/furniture/armorwall.png" id="13_qq1f1"]
+[ext_resource type="Texture2D" uid="uid://gljsdfa3nnl0" path="res://assets/furniture/armorwall.png" id="13_qq1f1"]
 [ext_resource type="Texture2D" uid="uid://cuwkmhgi03n3f" path="res://assets/furniture/armorertable.png" id="14_pghqw"]
 [ext_resource type="PackedScene" uid="uid://cimm781kdrdj5" path="res://scenes/npc/armorer.tscn" id="15_8kxbl"]
 

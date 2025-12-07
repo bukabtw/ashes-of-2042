@@ -1,12 +1,3 @@
 res://scenes/world/bunker.tscn
-res://scenes/npc/grandpa.tscn
-res://scripts/npc/grandpa.gd
-res://scripts/global/quest_system.gd
-res://scripts/npc/npc_advanced.gd
-res://scripts/ui/npc_ui.gd
-res://scripts/global/dialogue_saver.gd
-res://scripts/npc/npc_base.gd
-res://scenes/npc/gunsmith.tscn
-res://scenes/npc/armorer.tscn
-res://scripts/global/npc_manager.gd
-res://scripts/npc/npc_simple_state.gd
+res://scenes/enemies/zombie-cage.tscn
+res://scripts/enemies/states/enemy_state.gd

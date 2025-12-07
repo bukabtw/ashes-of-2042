@@ -31,9 +31,7 @@ func play_animation():
 		if enemy.animated_sprite.sprite_frames.has_animation(anim_name):
 			if enemy.animated_sprite.animation != anim_name:
 				enemy.animated_sprite.play(anim_name)
-		else:
-			print("Анимация '", anim_name, "' не найдена. Использую fallback.")
-			play_fallback_animation()
+
 
 func play_fallback_animation():
 	var direction = get_direction_suffix()
@@ -50,7 +48,6 @@ func play_fallback_animation():
 			enemy.animated_sprite.play(anim)
 			return
 	
-	print("Не найдено подходящих анимаций для fallback")
 
 func get_direction_suffix() -> String:
 	# Получаем направление из врага
