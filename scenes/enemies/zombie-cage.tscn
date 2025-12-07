@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b8ykj2ikr02kj"]
+[gd_scene load_steps=81 format=3 uid="uid://b8ykj2ikr02kj"]
 
 [ext_resource type="Script" uid="uid://kv13y30fkuv1" path="res://scripts/enemies/states/zombie/zombie_cage.gd" id="1_uj4hi"]
 [ext_resource type="Texture2D" uid="uid://de6i8osq6sfna" path="res://assets/models/enemies/zombie_man.png" id="2_ppbci"]
@@ -118,9 +118,13 @@ region = Rect2(256, 1280, 64, 64)
 atlas = ExtResource("2_ppbci")
 region = Rect2(320, 1280, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gl10n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj4hi"]
 atlas = ExtResource("2_ppbci")
-region = Rect2(0, 128, 64, 64)
+region = Rect2(0, 1536, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppbci"]
+atlas = ExtResource("2_ppbci")
+region = Rect2(64, 1536, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdvt3"]
 atlas = ExtResource("2_ppbci")
@@ -388,11 +392,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gl10n")
+"texture": SubResource("AtlasTexture_uj4hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppbci")
 }],
 "loop": true,
-"name": &"idle_back",
-"speed": 5.0
+"name": &"idle",
+"speed": 0.4
 }, {
 "frames": [{
 "duration": 1.0,
@@ -562,7 +569,7 @@ script = ExtResource("1_uj4hi")
 position = Vector2(-2, -71)
 scale = Vector2(1.6249993, 2.2187502)
 sprite_frames = SubResource("SpriteFrames_uj4hi")
-animation = &"idle_back"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -57)

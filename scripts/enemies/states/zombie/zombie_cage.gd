@@ -2,6 +2,7 @@ extends Zombie
 
 func _ready():
 	super._ready()
+	animated_sprite.play("idle")
 	
 	detection_range = 0.0
 	

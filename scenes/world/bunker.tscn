@@ -1,15 +1,16 @@
-[gd_scene load_steps=30 format=4 uid="uid://bx5itcqhpbi87"]
+[gd_scene load_steps=31 format=4 uid="uid://bx5itcqhpbi87"]
 
 [ext_resource type="Texture2D" uid="uid://cu3efbbxnr54" path="res://assets/tiles/blocks.png" id="1_7oxkj"]
 [ext_resource type="Texture2D" uid="uid://c1icrclt3yc3w" path="res://assets/tiles/grey.png" id="1_hayr1"]
 [ext_resource type="Texture2D" uid="uid://dq8d5na5038e3" path="res://assets/env/ladder_bunker.png" id="2_7oxkj"]
 [ext_resource type="PackedScene" uid="uid://1liicxweqngc" path="res://scenes/player/player.tscn" id="4_vygk0"]
-[ext_resource type="PackedScene" uid="uid://dnyke0ws07i70" path="res://scenes/npc/dad.tscn" id="5_q0o7r"]
+[ext_resource type="PackedScene" uid="uid://dnyke0ws07i70" path="res://scenes/npc/grandpa.tscn" id="5_q0o7r"]
 [ext_resource type="Texture2D" uid="uid://n5x5t0gavnd4" path="res://assets/furniture/table1.png" id="6_eqqqf"]
 [ext_resource type="Texture2D" uid="uid://bfbqljwtmwg3p" path="res://assets/furniture/chest1t.png" id="7_deeoj"]
 [ext_resource type="Texture2D" uid="uid://bc04wftio1dug" path="res://assets/furniture/cage.png" id="8_1yg1e"]
 [ext_resource type="PackedScene" uid="uid://b8ykj2ikr02kj" path="res://scenes/enemies/zombie-cage.tscn" id="9_kt3o8"]
 [ext_resource type="Texture2D" uid="uid://1dvo5s2rqdxe" path="res://assets/furniture/gunwall.png" id="10_0eewu"]
+[ext_resource type="PackedScene" uid="uid://onxswe5bc8ec" path="res://scenes/npc/scientist.tscn" id="10_elexu"]
 [ext_resource type="Texture2D" uid="uid://dqnuwkj5mcd81" path="res://assets/furniture/gunnertable.png" id="11_a2ef7"]
 [ext_resource type="PackedScene" uid="uid://dk5klgsvfiugn" path="res://scenes/npc/gunner.tscn" id="12_73es8"]
 [ext_resource type="Texture2D" uid="uid://dgctgmp1hcsl8" path="res://assets/furniture/armorwall.png" id="13_qq1f1"]
@@ -112,7 +113,7 @@ z_index = 5
 position = Vector2(-219, 99)
 collision_mask = 14
 
-[node name="Dad" parent="." instance=ExtResource("5_q0o7r")]
+[node name="Grandpa" parent="." instance=ExtResource("5_q0o7r")]
 position = Vector2(86, -3)
 
 [node name="Table" type="StaticBody2D" parent="."]
@@ -160,6 +161,13 @@ texture = ExtResource("8_1yg1e")
 
 [node name="Zombie" parent="Cage" instance=ExtResource("9_kt3o8")]
 position = Vector2(463, 15)
+
+[node name="Scientist" parent="Cage" instance=ExtResource("10_elexu")]
+z_index = 1
+position = Vector2(411, -25)
+scale = Vector2(2, 2.5)
+collision_layer = 2
+collision_mask = 5
 
 [node name="Gunshop" type="Sprite2D" parent="."]
 position = Vector2(705, -97.00001)

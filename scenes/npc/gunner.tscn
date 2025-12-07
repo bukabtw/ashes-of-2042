@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk5klgsvfiugn"]
+[gd_scene load_steps=7 format=3 uid="uid://dk5klgsvfiugn"]
 
 [ext_resource type="Texture2D" uid="uid://cbyl362wriu81" path="res://assets/models/npc/gunner.png" id="1_8ddg5"]
+[ext_resource type="Script" uid="uid://bwj3afoh85pjy" path="res://scripts/npc/gunner.gd" id="1_5131k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5131k"]
 atlas = ExtResource("1_8ddg5")
@@ -20,19 +21,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_q6cqk")
 }],
 "loop": true,
-"name": &"gunner_idle",
-"speed": 0.7
+"name": &"idle",
+"speed": 0.8
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0wwj"]
 size = Vector2(32, 53)
 
 [node name="Gunner" type="CharacterBody2D"]
+script = ExtResource("1_5131k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1a2dp")
-animation = &"gunner_idle"
-frame_progress = 0.14953202
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
