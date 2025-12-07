@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cu2jmcqfivtp0"
+path="res://.godot/imported/bunker_gunsmith.dialogue-37e001e3f32fe29a9ec3983ca6b0b71c.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/bunker_gunsmith.dialogue"
+dest_files=["res://.godot/imported/bunker_gunsmith.dialogue-37e001e3f32fe29a9ec3983ca6b0b71c.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dljgrqohm8o7d"
+path="res://.godot/imported/bunker_armorer.dialogue-5f0a5a32c34d5a62c40b199d55212ed2.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/bunker_armorer.dialogue"
+dest_files=["res://.godot/imported/bunker_armorer.dialogue-5f0a5a32c34d5a62c40b199d55212ed2.tres"]
+
+[params]
+
+defaults=true

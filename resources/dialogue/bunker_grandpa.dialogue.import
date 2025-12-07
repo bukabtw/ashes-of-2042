@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kut2bhlkxsha"
+path="res://.godot/imported/bunker_grandpa.dialogue-5ba3d1a26fc2384e5456951be4c12631.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/bunker_grandpa.dialogue"
+dest_files=["res://.godot/imported/bunker_grandpa.dialogue-5ba3d1a26fc2384e5456951be4c12631.tres"]
+
+[params]
+
+defaults=true

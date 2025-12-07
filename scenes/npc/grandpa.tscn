@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnyke0ws07i70"]
 
 [ext_resource type="Texture2D" uid="uid://dcuma3755gg6d" path="res://assets/models/npc/bald_dad.png" id="1_f5kff"]
-[ext_resource type="Script" uid="uid://ccndff4sf3yur" path="res://scripts/npc/grandpa.gd" id="1_x2te4"]
+[ext_resource type="Script" uid="uid://bq1aj5r4r88yy" path="res://scripts/npc/npc_simple_state.gd" id="1_x2te4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5kff"]
 atlas = ExtResource("1_f5kff")
@@ -25,13 +25,15 @@ animations = [{
 "speed": 0.7
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5kff"]
-size = Vector2(57, 124)
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2te4"]
+radius = 115.0
 
-[node name="Grandpa" type="CharacterBody2D"]
+[node name="Grandpa" type="Area2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_x2te4")
+npc_name = "grandpa"
+dialogue_file = "res://resources/dialogue/bunker_grandpa.dialogue"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(28.499996, -45.000004)
@@ -40,5 +42,5 @@ sprite_frames = SubResource("SpriteFrames_locpe")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(28.5, -30)
-shape = SubResource("RectangleShape2D_f5kff")
+position = Vector2(27, 27)
+shape = SubResource("CircleShape2D_x2te4")

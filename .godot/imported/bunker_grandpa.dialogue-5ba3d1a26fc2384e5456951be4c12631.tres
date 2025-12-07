@@ -1,0 +1,306 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_v1jly"]
+
+[resource]
+script = ExtResource("1_v1jly")
+using_states = PackedStringArray()
+titles = {
+"after_gunsmith": "78",
+"first_meet": "56",
+"give_note": "64",
+"repeat": "73"
+}
+character_names = PackedStringArray("Grandpa", "Player")
+first_title = "55"
+lines = {
+"54": {
+&"id": "54",
+&"next_id": "55",
+&"type": ""
+},
+"55": {
+&"id": "55",
+&"next_id": "56",
+&"type": "title"
+},
+"56": {
+&"character": "Grandpa",
+&"id": "56",
+&"next_id": "57",
+&"notes": "=> give_item gun_note
+=> options
+=> give_quest find_transmitter",
+&"text": "Проснулся, малой? Время пришло. Восемнадцать лет ждал этого дня.",
+&"type": "dialogue"
+},
+"57": {
+&"character": "Player",
+&"id": "57",
+&"next_id": "58",
+&"text": "Дедушка... что происходит? Где мама?",
+&"type": "dialogue"
+},
+"58": {
+&"character": "Grandpa",
+&"id": "58",
+&"next_id": "59",
+&"text": "Елена жива. Соколов держит её в Кратере Нексуса.",
+&"type": "dialogue"
+},
+"59": {
+&"character": "Grandpa",
+&"id": "59",
+&"next_id": "60",
+&"text": "Возьми этот нож. Отца твоего. Иди к оружейнику — снарядись.",
+&"type": "dialogue"
+},
+"60": {
+&"character": "Player",
+&"id": "60",
+&"next_id": "61",
+&"text": "Спасибо, дедушка. Я найду её.",
+&"type": "dialogue"
+},
+"61": {
+&"id": "61",
+&"is_snippet": false,
+&"next_id": "64",
+&"next_id_after": "",
+&"type": "goto"
+},
+"62": {
+&"id": "62",
+&"next_id": "63",
+&"type": ""
+},
+"63": {
+&"id": "63",
+&"next_id": "64",
+&"type": "title"
+},
+"64": {
+&"character": "Grandpa",
+&"id": "64",
+&"next_id": "65",
+&"text": "Подожди... Одного ножа мало. Возьми эту записку оружейнику.",
+&"type": "dialogue"
+},
+"65": {
+&"character": "Grandpa",
+&"id": "65",
+&"next_id": "66",
+&"text": "Он даст тебе кое-что особенное. Старое, но надежное.",
+&"type": "dialogue"
+},
+"66": {
+&"character": "Player",
+&"id": "66",
+&"next_id": "67",
+&"text": "Что это?",
+&"type": "dialogue"
+},
+"67": {
+&"character": "Grandpa",
+&"id": "67",
+&"next_id": "68",
+&"text": "Оружие твоего отца. Андрей завещал передать его тебе.",
+&"type": "dialogue"
+},
+"68": {
+&"character": "Player",
+&"id": "68",
+&"next_id": "69",
+&"text": "(беру записку) Я вернусь.",
+&"type": "dialogue"
+},
+"69": {
+&"character": "Grandpa",
+&"id": "69",
+&"next_id": "70",
+&"text": "Возвращайся живым.",
+&"type": "dialogue"
+},
+"70": {
+&"id": "70",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"71": {
+&"id": "71",
+&"next_id": "72",
+&"type": ""
+},
+"72": {
+&"id": "72",
+&"next_id": "73",
+&"type": "title"
+},
+"73": {
+&"character": "Grandpa",
+&"id": "73",
+&"next_id": "74",
+&"text": "Ты ещё здесь? Оружейник ждёт.",
+&"type": "dialogue"
+},
+"74": {
+&"character": "Player",
+&"id": "74",
+&"next_id": "75",
+&"text": "Сейчас иду.",
+&"type": "dialogue"
+},
+"75": {
+&"id": "75",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"76": {
+&"id": "76",
+&"next_id": "77",
+&"type": ""
+},
+"77": {
+&"id": "77",
+&"next_id": "78",
+&"type": "title"
+},
+"78": {
+&"character": "Grandpa",
+&"id": "78",
+&"next_id": "79",
+&"text": "Вижу, оружейник снарядил тебя.",
+&"type": "dialogue"
+},
+"79": {
+&"character": "Player",
+&"id": "79",
+&"next_id": "80",
+&"text": "Да, дедушка. Спасибо за записку.",
+&"type": "dialogue"
+},
+"80": {
+&"character": "Grandpa",
+&"id": "80",
+&"next_id": "81",
+&"text": "Теперь слушай: иди в руины Северска. Будь осторожен.",
+&"type": "dialogue"
+},
+"81": {
+&"character": "Player",
+&"id": "81",
+&"next_id": "82",
+&"text": "Понял.",
+&"type": "dialogue"
+},
+"82": {
+&"character": "Grandpa",
+&"id": "82",
+&"next_id": "83",
+&"text": "Удачи, малой.",
+&"type": "dialogue"
+},
+"83": {
+&"id": "83",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"84": {
+&"id": "84",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "#dialogue
+#~ first_meet
+#Grandpa: Проснулся, малой? Время пришло. Восемнадцать лет ждал этого дня.
+#Player: Дедушка... что происходит? Где мама?
+#Grandpa: Елена жива. Соколов держит её в Кратере Нексуса.
+#Grandpa: Возьми этот нож. Отца твоего. Иди к оружейнику — снарядись.
+#Player: Спасибо, дедушка. Я найду её.
+#=> give_quest
+#
+#~ give_quest
+#Grandpa: Подожди... Одного ножа мало. Возьми эту записку оружейнику.
+#Grandpa: Он даст тебе кое-что особенное. Старое, но надежное.
+#Player: Что это?
+#Grandpa: Оружие твоего отца. Андрей завещал передать его тебе, когда вырастешь.
+#Player: (беру записку) Я вернусь, дедушка.
+#Grandpa: Возвращайся живым. Мир снаружи... жесток.
+##=> give_item gun_note
+#=> END
+#
+#~ repeat
+#Grandpa: Ты ещё здесь? Оружейник ждёт.
+#Player: Сейчас иду.
+##=> options
+#    Спросить про маму
+#        => ask_about_mom
+#    Спросить про Соколова
+#        => ask_about_sokolov
+#    Уйти
+#        => END
+#
+#~ ask_about_mom
+#Grandpa: Елена... сильная женщина. Она держалась все эти годы.
+#Grandpa: Но сыворотка Соколова... она ломает волю. Торопись, малой.
+#Player: Я спасу её.
+#=> return_to_repeat
+#
+#~ ask_about_sokolov
+#Grandpa: Вик... был как брат. Пока не украл сыворотку бессмертия.
+#Grandpa: Теперь он хочет стать богом. Останови его, пока не поздно.
+#Player: Я понял.
+#=> return_to_repeat
+#
+#~ return_to_repeat
+#=> repeat
+#
+#~ after_gunsmith
+#Grandpa: Вижу, оружейник снарядил тебя как следует.
+#Player: Да, дедушка. Спасибо за записку.
+#Grandpa: Теперь слушай внимательно. Чтобы добраться до Нексуса...
+#Grandpa: Тебе нужно пройти через руины Северска. Будь осторожен — там заражённые.
+#Player: Понял.
+#Grandpa: И ещё... найди в Северске старый передатчик. Он может помочь.
+##=> give_quest find_transmitter
+#=> END
+
+~ first_meet
+Grandpa: Проснулся, малой? Время пришло. Восемнадцать лет ждал этого дня.
+Player: Дедушка... что происходит? Где мама?
+Grandpa: Елена жива. Соколов держит её в Кратере Нексуса.
+Grandpa: Возьми этот нож. Отца твоего. Иди к оружейнику — снарядись.
+Player: Спасибо, дедушка. Я найду её.
+=> give_note
+
+~ give_note
+Grandpa: Подожди... Одного ножа мало. Возьми эту записку оружейнику.
+Grandpa: Он даст тебе кое-что особенное. Старое, но надежное.
+Player: Что это?
+Grandpa: Оружие твоего отца. Андрей завещал передать его тебе.
+Player: (беру записку) Я вернусь.
+Grandpa: Возвращайся живым.
+=> END
+
+~ repeat
+Grandpa: Ты ещё здесь? Оружейник ждёт.
+Player: Сейчас иду.
+=> END
+
+~ after_gunsmith
+Grandpa: Вижу, оружейник снарядил тебя.
+Player: Да, дедушка. Спасибо за записку.
+Grandpa: Теперь слушай: иди в руины Северска. Будь осторожен.
+Player: Понял.
+Grandpa: Удачи, малой.
+=> END"
+metadata/dialogue_manager_version = "3.9.0"

@@ -1,0 +1,59 @@
+#~ welcome
+#Gunsmith: А, старина Дед прислал? Покажи записку.
+#if has_item("gun_note")
+#    Player: Вот она.
+#    Gunsmith: Хм... Так и есть. Подожди тут.
+#    Gunsmith: (возвращается с винтовкой) Вот. Винтовка твоего отца.
+#    Player: Спасибо.
+#    => give_item father_rifle
+#    => complete_quest get_gun
+#else
+#    Player: У меня нет записки...
+#    Gunsmith: Тогда иди к Деду. Без записки ничего не дам.
+#endif
+#=> END
+#
+#~ trade
+#Gunsmith: Что нужно? Патроны, оружие, аптечки...
+#=> options
+#    Купить патроны
+#        Gunsmith: 50 патронов - 10 кредитов.
+#        => trade_bullets
+#    Продать лом
+#        Gunsmith: Давай посмотрим что у тебя...
+#        => trade_scrap
+#    Уйти
+#        => END
+#
+#~ trade_bullets
+#if player_money >= 10
+#    Player: Вот деньги.
+#    Gunsmith: Держи. Береги себя.
+#    => remove_money 10
+#    => give_item bullets_50
+#else
+#    Player: Не хватает денег...
+#    Gunsmith: Тогда заработай и возвращайся.
+#endif
+#=> trade
+
+~ first_meet
+Gunsmith: А, старина Дед прислал? Покажи записку.
+Player: Вот она.
+Gunsmith: Хм... Так и есть. Подожди тут.
+Gunsmith: (возвращается с винтовкой) Вот. Винтовка твоего отца.
+Player: Спасибо.
+Gunsmith: Береги её. И себя тоже.
+=> END
+
+~ repeat
+Gunsmith: Что-то ещё нужно?
+Player: Нет, пока всё.
+Gunsmith: Тогда удачи на поверхности.
+=> END
+
+~ trade
+Gunsmith: Хочешь что-то купить?
+Player: Давайте посмотрим...
+Gunsmith: Извини, припасы закончились. Приходи позже.
+=> END

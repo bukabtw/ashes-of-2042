@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dk5klgsvfiugn"]
 
 [ext_resource type="Texture2D" uid="uid://cbyl362wriu81" path="res://assets/models/npc/gunner.png" id="1_8ddg5"]
-[ext_resource type="Script" uid="uid://bwj3afoh85pjy" path="res://scripts/npc/gunner.gd" id="1_5131k"]
+[ext_resource type="Script" uid="uid://bq1aj5r4r88yy" path="res://scripts/npc/npc_simple_state.gd" id="1_24jmi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5131k"]
 atlas = ExtResource("1_8ddg5")
@@ -25,16 +25,19 @@ animations = [{
 "speed": 0.8
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0wwj"]
-size = Vector2(32, 53)
+[sub_resource type="CircleShape2D" id="CircleShape2D_24jmi"]
+radius = 54.0
 
-[node name="Gunner" type="CharacterBody2D"]
-script = ExtResource("1_5131k")
+[node name="Gunsmith" type="Area2D"]
+script = ExtResource("1_24jmi")
+npc_name = "gunsmith"
+dialogue_file = "res://resources/dialogue/bunker_gunsmith.dialogue"
+start_node_after_quest = "trade"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1a2dp")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_n0wwj")
+position = Vector2(0, 30)
+shape = SubResource("CircleShape2D_24jmi")

@@ -1,0 +1,56 @@
+#~ hello
+#Armorer: Вижу, твоя броня пострадала. Починить?
+#=> options
+#    Да, починить броню
+#        => repair_armor
+#    Спросить про улучшения
+#        => ask_upgrades
+#    Нет, спасибо
+#        => END
+#
+#~ repair_armor
+#Armorer: Покажи что там...
+#if armor_damage > 0
+#    Armorer: Починю за 20 кредитов.
+#    => options
+#        Согласиться
+#            => do_repair
+#        Отказаться
+#            => hello
+#else
+#    Armorer: Броня в порядке. Приходи когда повредишь.
+#    => hello
+#endif
+#
+#~ do_repair
+#if player_money >= 20
+#    Player: Вот деньги.
+#    Armorer: (чинит) Готово. Как новая.
+#    => remove_money 20
+#    => repair_armor_full
+#else
+#    Player: Не хватает...
+#    Armorer: Собирай и возвращайся.
+#endif
+#=> hello
+
+~ first_meet
+Armorer: О, новый клиент. Броня у тебя... старая.
+Player: Можно починить?
+Armorer: Конечно. Бесплатно, раз уж ты друг Старика.
+Armorer: (чинит) Готово. Теперь хоть что-то защитит.
+Player: Спасибо.
+Armorer: Будь осторожен там, наверху.
+=> END
+
+~ repeat
+Armorer: Снова здесь? Броня цела?
+Player: Пока да.
+Armorer: Тогда держись подальше от зубов зомби.
+=> END
+
+~ upgrade
+Armorer: Хочешь улучшить броню?
+Player: Что предлагаешь?
+Armorer: Пока ничего. Материалов нет. Приходи позже.
+=> END

@@ -1,0 +1,218 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_i4mi7"]
+
+[resource]
+script = ExtResource("1_i4mi7")
+using_states = PackedStringArray()
+titles = {
+"first_meet": "40",
+"repeat": "49",
+"trade": "55"
+}
+character_names = PackedStringArray("Gunsmith", "Player")
+first_title = "39"
+lines = {
+"38": {
+&"id": "38",
+&"next_id": "39",
+&"type": ""
+},
+"39": {
+&"id": "39",
+&"next_id": "40",
+&"type": "title"
+},
+"40": {
+&"character": "Gunsmith",
+&"id": "40",
+&"next_id": "41",
+&"text": "А, старина Дед прислал? Покажи записку.",
+&"type": "dialogue"
+},
+"41": {
+&"character": "Player",
+&"id": "41",
+&"next_id": "42",
+&"text": "Вот она.",
+&"type": "dialogue"
+},
+"42": {
+&"character": "Gunsmith",
+&"id": "42",
+&"next_id": "43",
+&"text": "Хм... Так и есть. Подожди тут.",
+&"type": "dialogue"
+},
+"43": {
+&"character": "Gunsmith",
+&"id": "43",
+&"next_id": "44",
+&"text": "(возвращается с винтовкой) Вот. Винтовка твоего отца.",
+&"type": "dialogue"
+},
+"44": {
+&"character": "Player",
+&"id": "44",
+&"next_id": "45",
+&"text": "Спасибо.",
+&"type": "dialogue"
+},
+"45": {
+&"character": "Gunsmith",
+&"id": "45",
+&"next_id": "46",
+&"text": "Береги её. И себя тоже.",
+&"type": "dialogue"
+},
+"46": {
+&"id": "46",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"47": {
+&"id": "47",
+&"next_id": "48",
+&"type": ""
+},
+"48": {
+&"id": "48",
+&"next_id": "49",
+&"type": "title"
+},
+"49": {
+&"character": "Gunsmith",
+&"id": "49",
+&"next_id": "50",
+&"text": "Что-то ещё нужно?",
+&"type": "dialogue"
+},
+"50": {
+&"character": "Player",
+&"id": "50",
+&"next_id": "51",
+&"text": "Нет, пока всё.",
+&"type": "dialogue"
+},
+"51": {
+&"character": "Gunsmith",
+&"id": "51",
+&"next_id": "52",
+&"text": "Тогда удачи на поверхности.",
+&"type": "dialogue"
+},
+"52": {
+&"id": "52",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"53": {
+&"id": "53",
+&"next_id": "54",
+&"type": ""
+},
+"54": {
+&"id": "54",
+&"next_id": "55",
+&"type": "title"
+},
+"55": {
+&"character": "Gunsmith",
+&"id": "55",
+&"next_id": "56",
+&"text": "Хочешь что-то купить?",
+&"type": "dialogue"
+},
+"56": {
+&"character": "Player",
+&"id": "56",
+&"next_id": "57",
+&"text": "Давайте посмотрим...",
+&"type": "dialogue"
+},
+"57": {
+&"character": "Gunsmith",
+&"id": "57",
+&"next_id": "58",
+&"text": "Извини, припасы закончились. Приходи позже.",
+&"type": "dialogue"
+},
+"58": {
+&"id": "58",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"59": {
+&"id": "59",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+}
+}
+raw_text = "#~ welcome
+#Gunsmith: А, старина Дед прислал? Покажи записку.
+#if has_item(\"gun_note\")
+#    Player: Вот она.
+#    Gunsmith: Хм... Так и есть. Подожди тут.
+#    Gunsmith: (возвращается с винтовкой) Вот. Винтовка твоего отца.
+#    Player: Спасибо.
+#    => give_item father_rifle
+#    => complete_quest get_gun
+#else
+#    Player: У меня нет записки...
+#    Gunsmith: Тогда иди к Деду. Без записки ничего не дам.
+#endif
+#=> END
+#
+#~ trade
+#Gunsmith: Что нужно? Патроны, оружие, аптечки...
+#=> options
+#    Купить патроны
+#        Gunsmith: 50 патронов - 10 кредитов.
+#        => trade_bullets
+#    Продать лом
+#        Gunsmith: Давай посмотрим что у тебя...
+#        => trade_scrap
+#    Уйти
+#        => END
+#
+#~ trade_bullets
+#if player_money >= 10
+#    Player: Вот деньги.
+#    Gunsmith: Держи. Береги себя.
+#    => remove_money 10
+#    => give_item bullets_50
+#else
+#    Player: Не хватает денег...
+#    Gunsmith: Тогда заработай и возвращайся.
+#endif
+#=> trade
+
+~ first_meet
+Gunsmith: А, старина Дед прислал? Покажи записку.
+Player: Вот она.
+Gunsmith: Хм... Так и есть. Подожди тут.
+Gunsmith: (возвращается с винтовкой) Вот. Винтовка твоего отца.
+Player: Спасибо.
+Gunsmith: Береги её. И себя тоже.
+=> END
+
+~ repeat
+Gunsmith: Что-то ещё нужно?
+Player: Нет, пока всё.
+Gunsmith: Тогда удачи на поверхности.
+=> END
+
+~ trade
+Gunsmith: Хочешь что-то купить?
+Player: Давайте посмотрим...
+Gunsmith: Извини, припасы закончились. Приходи позже.
+=> END"
+metadata/dialogue_manager_version = "3.9.0"

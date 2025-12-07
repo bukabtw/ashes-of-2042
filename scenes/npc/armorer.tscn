@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cimm781kdrdj5"]
 
-[ext_resource type="Script" uid="uid://duee68iujbe1o" path="res://scripts/npc/armorer.gd" id="1_0r8bi"]
+[ext_resource type="Script" uid="uid://bq1aj5r4r88yy" path="res://scripts/npc/npc_simple_state.gd" id="1_0r8bi"]
 [ext_resource type="Texture2D" uid="uid://dmwl3psm8fthy" path="res://assets/models/npc/armorer.png" id="1_f7swx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r8bi"]
@@ -25,11 +25,14 @@ animations = [{
 "speed": 0.6
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_drgjn"]
-size = Vector2(30, 51)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0r8bi"]
+radius = 55.145264
 
-[node name="Armorer" type="CharacterBody2D"]
+[node name="Armorer" type="Area2D"]
 script = ExtResource("1_0r8bi")
+npc_name = "armorer"
+dialogue_file = "res://resources/dialogue/bunker_armorer.dialogue"
+start_node_after_quest = "upgrade"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g4ksh")
@@ -37,5 +40,5 @@ animation = &"idle"
 frame_progress = 0.22312833
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
-shape = SubResource("RectangleShape2D_drgjn")
+position = Vector2(0, 33)
+shape = SubResource("CircleShape2D_0r8bi")

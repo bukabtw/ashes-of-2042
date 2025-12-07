@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://1dvo5s2rqdxe" path="res://assets/furniture/gunwall.png" id="10_0eewu"]
 [ext_resource type="PackedScene" uid="uid://onxswe5bc8ec" path="res://scenes/npc/scientist.tscn" id="10_elexu"]
 [ext_resource type="Texture2D" uid="uid://dqnuwkj5mcd81" path="res://assets/furniture/gunnertable.png" id="11_a2ef7"]
-[ext_resource type="PackedScene" uid="uid://dk5klgsvfiugn" path="res://scenes/npc/gunner.tscn" id="12_73es8"]
+[ext_resource type="PackedScene" uid="uid://dk5klgsvfiugn" path="res://scenes/npc/gunsmith.tscn" id="12_73es8"]
 [ext_resource type="Texture2D" uid="uid://dgctgmp1hcsl8" path="res://assets/furniture/armorwall.png" id="13_qq1f1"]
 [ext_resource type="Texture2D" uid="uid://cuwkmhgi03n3f" path="res://assets/furniture/armorertable.png" id="14_pghqw"]
 [ext_resource type="PackedScene" uid="uid://cimm781kdrdj5" path="res://scenes/npc/armorer.tscn" id="15_8kxbl"]
@@ -174,21 +174,21 @@ position = Vector2(705, -97.00001)
 scale = Vector2(1.25, 1.274)
 texture = ExtResource("10_0eewu")
 
-[node name="GunnerTable" type="StaticBody2D" parent="Gunshop"]
+[node name="GunsmithTable" type="StaticBody2D" parent="Gunshop"]
 z_index = 1
 position = Vector2(-0.80000496, 111.45997)
 scale = Vector2(1.6125, 1.6038069)
 collision_layer = 4
 collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gunshop/GunnerTable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gunshop/GunsmithTable"]
 position = Vector2(1.9845276, -5.6282845)
 shape = SubResource("RectangleShape2D_73es8")
 
-[node name="Sprite2D" type="Sprite2D" parent="Gunshop/GunnerTable"]
+[node name="Sprite2D" type="Sprite2D" parent="Gunshop/GunsmithTable"]
 texture = ExtResource("11_a2ef7")
 
-[node name="Gunner" parent="Gunshop" instance=ExtResource("12_73es8")]
+[node name="Gunsmith" parent="Gunshop" instance=ExtResource("12_73es8")]
 position = Vector2(-2.4000182, 54.94506)
 scale = Vector2(1.6, 1.8)
 
