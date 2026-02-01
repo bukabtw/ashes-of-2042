@@ -6,8 +6,16 @@ var last_movement_direction: PlayerDirection = PlayerDirection.DOWN
 
 @export var speed: int = 200
 @export var attack_damage: int = 10
+@export var is_preview: bool = false
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var head_armor_sprite = $AnimatedSprite2D/HeadArmorSprite
+@onready var body_armor_sprite = $AnimatedSprite2D/BodyArmorSprite
+@onready var legs_armor_sprite = $AnimatedSprite2D/LegsArmorSprite
+@onready var feet_armor_sprite = $AnimatedSprite2D/FeetArmorSprite
+@onready var backpack_sprite = $AnimatedSprite2D/BackpackSprite
+@onready var weapon_sprite = $AnimatedSprite2D/WeaponSprite
+
 @onready var attack_range = $AttackRange
 @onready var state_machine = $PlayerStateMachine
 @onready var health_component = $HealthComponent
@@ -18,12 +26,41 @@ const PlayerMoveState = preload("res://scripts/player/states/player_move.gd")
 const PlayerAttackState = preload("res://scripts/player/states/player_attack.gd")
 const PlayerHurtState = preload("res://scripts/player/states/player_hurt.gd")
 const PlayerDeathState = preload("res://scripts/player/states/player_death.gd")
+const HUDScene = preload("res://scenes/ui/hud.tscn")
+
+var inventory_data: InventoryData
+var hud: CanvasLayer
 
 func _ready():
 	var collision = $CollisionShape2D
 	collision.shape = RectangleShape2D.new()
 	collision.shape.size = Vector2(24, 44)
 	collision.position = Vector2(0, 10)
+
+	if is_preview:
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		if animated_sprite:
+			animated_sprite.play("idle_back")
+		return
+
+	# Инициализация инвентаря
+	inventory_data = InventoryData.new()
+	inventory_data.slots.resize(InventoryData.MAX_SLOTS) # Используем константу
+	inventory_data.equipment_updated.connect(update_equipment_visuals)
+	
+	# Настройка InputMap
+	if not InputMap.has_action("inventory"):
+		InputMap.add_action("inventory")
+		var ev = InputEventKey.new()
+		ev.keycode = KEY_I
+		InputMap.action_add_event("inventory", ev)
+		var ev_tab = InputEventKey.new()
+		ev_tab.keycode = KEY_TAB
+		InputMap.action_add_event("inventory", ev_tab)
+
+	# Создание HUD
+	hud = HUDScene.instantiate()
+	call_deferred("_add_hud")
 
 	if camera:
 		camera.make_current()
@@ -42,6 +79,11 @@ func _ready():
 		health_component.health_depleted.connect(_on_health_depleted)
 	else:
 		push_error("HealthComponent не найден!")
+
+func _add_hud():
+	if get_parent():
+		get_parent().add_child(hud)
+		hud.setup_player(self, inventory_data)
 
 func setup_state_machine():
 	var idle_state = PlayerIdleState.new()
@@ -71,7 +113,42 @@ func _input(event):
 	state_machine.process_input(event)
 
 func _process(delta):
+	if animated_sprite and animated_sprite.animation != "":
+		_sync_equipment_animation(animated_sprite.animation, animated_sprite.frame)
 	state_machine.process_frame(delta)
+
+func _sync_equipment_animation(anim_name: String, frame_idx: int):
+	# Sync all equipment sprites to main sprite
+	var sprites = [head_armor_sprite, body_armor_sprite, legs_armor_sprite, feet_armor_sprite, backpack_sprite, weapon_sprite]
+	for sprite in sprites:
+		if sprite and sprite.sprite_frames and sprite.sprite_frames.has_animation(anim_name):
+			if sprite.animation != anim_name:
+				sprite.play(anim_name)
+			sprite.frame = frame_idx
+		elif sprite:
+			sprite.stop()
+			sprite.frame = 0 # Or hide it if no animation
+
+func update_equipment_visuals(slot_type: int, item_data: ItemData):
+	var sprite_to_update = null
+	match slot_type:
+		ItemData.EquipmentSlot.HEAD: sprite_to_update = head_armor_sprite
+		ItemData.EquipmentSlot.BODY: sprite_to_update = body_armor_sprite
+		ItemData.EquipmentSlot.LEGS: sprite_to_update = legs_armor_sprite
+		ItemData.EquipmentSlot.FEET: sprite_to_update = feet_armor_sprite
+		ItemData.EquipmentSlot.BACKPACK: sprite_to_update = backpack_sprite
+		ItemData.EquipmentSlot.MELEE, ItemData.EquipmentSlot.PISTOL, ItemData.EquipmentSlot.RIFLE:
+			sprite_to_update = weapon_sprite
+	
+	if sprite_to_update:
+		if item_data and item_data.icon: # Assuming item data will have sprite sheets later
+			# For now, we don't have separate spritesheets for equipment.
+			# This is where we would load the correct texture/resource based on item_data
+			# e.g. sprite_to_update.sprite_frames = load(item_data.visual_path)
+			sprite_to_update.show()
+			pass
+		else:
+			sprite_to_update.hide()
 
 func _physics_process(delta):
 	state_machine.process_physics(delta)

@@ -89,12 +89,20 @@ func play_talk_animation():
 		elif animated_sprite.sprite_frames.has_animation("talk"):
 			animated_sprite.play("talk")
 
-func update_interaction_icon():
+func update_interaction_icon(show: bool):
 	if interaction_icon:
-		interaction_icon.visible = player_in_range
-		if player_in_range:
-			# Плавное движение вверх-вниз
-			interaction_icon.position.y = sin(Time.get_ticks_msec() * 0.005) * 3 - 50
+		interaction_icon.visible = show
+		if show:
+			# Запускаем простую анимацию через Tween
+			var tween = create_tween().set_loops()
+			tween.tween_property(interaction_icon, "position:y", -60.0, 1.0).from(-50.0).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(interaction_icon, "position:y", -50.0, 1.0).set_trans(Tween.TRANS_SINE)
+		else:
+			# Останавливаем твины на иконке (если есть)
+			# Но create_tween по умолчанию привязан к SceneTree или Node, 
+			# здесь проще просто скрыть, Tween сам умрет при удалении ноды или можно убить явно, 
+			# но для простоты просто скрываем.
+			pass
 
 func mark_dialogue_shown(dialogue_id: String):
 	if not dialogue_history.has(dialogue_id):

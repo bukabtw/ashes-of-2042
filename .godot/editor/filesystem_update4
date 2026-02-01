@@ -1,3 +1,2 @@
-res://scenes/world/bunker.tscn
-res://scenes/enemies/zombie-cage.tscn
-res://scripts/enemies/states/enemy_state.gd
+res://scripts/inventory/inventory_ui.gd
+res://scenes/inventory/inventory.tscn

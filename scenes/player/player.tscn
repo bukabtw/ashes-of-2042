@@ -779,6 +779,30 @@ scale = Vector2(1.9993106, 2.5621996)
 sprite_frames = SubResource("SpriteFrames_0ioy2")
 animation = &"idle_back"
 
+[node name="HeadArmorSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
+[node name="BodyArmorSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
+[node name="LegsArmorSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
+[node name="FeetArmorSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
+[node name="BackpackSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0ioy2")
+animation = &"idle_back"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -15)
 shape = SubResource("RectangleShape2D_0owmy")
