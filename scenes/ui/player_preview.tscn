@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://dukfygmqkfpee"]
+
+[ext_resource type="Script" path="res://scripts/ui/player_preview.gd" id="1_script"]
+
+[node name="PlayerPreview" type="Node2D"]
+script = ExtResource("1_script")
+process_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(3, 3)
+
+[node name="HeadIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+visible = false
+
+[node name="BodyIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+visible = false
+
+[node name="LegsIcon" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+visible = false
+
+[node name="FeetIcon" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+visible = false
+
+[node name="BackpackIcon" type="Sprite2D" parent="."]
+position = Vector2(-20, -15)
+visible = false
+
+[node name="WeaponIcon" type="Sprite2D" parent="."]
+position = Vector2(20, -15)
+visible = false
+
+[node name="MedkitIcon" type="Sprite2D" parent="."]
+position = Vector2(-32, 58)
+visible = false
+
+[node name="GrenadeIcon" type="Sprite2D" parent="."]
+position = Vector2(0, 58)
+visible = false
+
+[node name="AccessoryIcon" type="Sprite2D" parent="."]
+position = Vector2(32, 58)
+visible = false

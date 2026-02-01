@@ -2,7 +2,7 @@ extends Resource
 class_name ItemData
 
 enum ItemType { MISC, WEAPON, ARMOR, CONSUMABLE }
-enum EquipmentSlot { NONE, HEAD, BODY, LEGS, FEET, MELEE, PISTOL, RIFLE, BACKPACK }
+enum EquipmentSlot { NONE, HEAD, BODY, LEGS, FEET, MELEE, PISTOL, RIFLE, BACKPACK, MEDKIT, GRENADE, RING }
 
 @export var name: String = ""
 @export_multiline var description: String = ""

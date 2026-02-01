@@ -1,0 +1,293 @@
+[gd_scene format=3 uid="uid://w2x3jj3p4aii"]
+
+[ext_resource type="Script" uid="uid://mti8kgv2kb1b" path="res://scripts/inventory/inventory_ui.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/inventory/inventory_slot.tscn" id="2_slot"]
+[ext_resource type="PackedScene" uid="uid://dukfygmqkfpee" path="res://scenes/ui/player_preview.tscn" id="4_preview"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_preview"]
+bg_color = Color(0.08, 0.08, 0.08, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Inventory" type="Control" unique_id=846005225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1339478347]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=245056334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2065467063]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainSection" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1213260949]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection" unique_id=722302326]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="TopSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left" unique_id=1970175762]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="WeaponsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection" unique_id=2032135057]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer" unique_id=1387018846]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Guns"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="MeleeSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer" unique_id=2122037909 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="PistolSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer" unique_id=845799307 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="RifleSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer" unique_id=738465246 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="BackpackSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer" unique_id=201489027 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="PlayerPreviewContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection" unique_id=679043288]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer" unique_id=245260202]
+layout_mode = 2
+text = "Player"
+horizontal_alignment = 1
+
+[node name="PreviewFrame" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer" unique_id=2081246425]
+clip_contents = true
+custom_minimum_size = Vector2(150, 202)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_preview")
+
+[node name="PlayerPreview" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/PreviewFrame" unique_id=1668389946 instance=ExtResource("4_preview")]
+position = Vector2(105.5, 85)
+
+[node name="QuickSlots" type="HBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer" unique_id=276301605]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="MedkitSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots" unique_id=1822925713 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="GrenadeSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots" unique_id=915863410 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="AccessorySlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots" unique_id=2096966707 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="ArmorContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection" unique_id=875992544]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1041605094]
+layout_mode = 2
+text = "Armor"
+horizontal_alignment = 1
+
+[node name="HeadSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1371553595 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="BodySlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1942190843 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="LegsSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1837619615 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="FeetSlot" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1332033002 instance=ExtResource("2_slot")]
+layout_mode = 2
+
+[node name="RightPanel" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection" unique_id=1856105413]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TabsMargin" type="MarginContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel" unique_id=1205805064]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 32
+
+[node name="TabsBar" type="HBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin" unique_id=1699273091]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="QuestBtn" type="Button" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar" unique_id=2072338033]
+layout_mode = 2
+toggle_mode = true
+text = "Задания"
+
+[node name="StatsBtn" type="Button" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar" unique_id=332732107]
+layout_mode = 2
+toggle_mode = true
+text = "Статистика"
+
+[node name="SkillsBtn" type="Button" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar" unique_id=690395618]
+layout_mode = 2
+toggle_mode = true
+text = "Навыки"
+
+[node name="CollectionBtn" type="Button" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar" unique_id=124210646]
+layout_mode = 2
+toggle_mode = true
+text = "Коллекция"
+
+[node name="Scroll" type="ScrollContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel" unique_id=871656578]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Content" type="StackContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll" unique_id=1156050675]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="QuestPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=495295231]
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/QuestPanel" unique_id=1956096587]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/QuestPanel/MarginContainer" unique_id=1790489355]
+layout_mode = 2
+text = "Задания: контент"
+
+[node name="StatsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1188643369]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/StatsPanel" unique_id=930460566]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/StatsPanel/MarginContainer" unique_id=753571651]
+layout_mode = 2
+text = "Статистика: контент"
+
+[node name="SkillsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1225609284]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/SkillsPanel" unique_id=1852681545]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/SkillsPanel/MarginContainer" unique_id=759281415]
+layout_mode = 2
+text = "Навыки: контент"
+
+[node name="CollectionPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1074561520]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/CollectionPanel" unique_id=716931371]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content/CollectionPanel/MarginContainer" unique_id=967670663]
+layout_mode = 2
+text = "Коллекция: контент"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/MainSection/Left" unique_id=667236917]
+layout_mode = 2
+
+[node name="BackpackLabel" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left" unique_id=1551367378]
+layout_mode = 2
+text = "Backpack"
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/MainSection/Left" unique_id=1212758916]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 10

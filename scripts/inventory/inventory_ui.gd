@@ -20,8 +20,11 @@ var style_inactive: StyleBoxFlat
 @onready var backpack_slot = $PanelContainer/MarginContainer/MainSection/Left/TopSection/WeaponsContainer/BackpackSlot
 
 # Превью игрока
-@onready var player_preview = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/SubViewportContainer/SubViewport/PlayerPreview
-@onready var player_preview_container = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/SubViewportContainer
+@onready var player_preview = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/PreviewFrame/PlayerPreview
+@onready var player_preview_container = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/PreviewFrame
+@onready var medkit_slot = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots/MedkitSlot
+@onready var grenade_slot = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots/GrenadeSlot
+@onready var accessory_slot = $PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer/QuickSlots/AccessorySlot
 @onready var quest_btn = $PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar/QuestBtn
 @onready var stats_btn = $PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar/StatsBtn
 @onready var skills_btn = $PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/TabsMargin/TabsBar/SkillsBtn
@@ -72,25 +75,6 @@ func _ready():
 		selected_tab = int(cfg.get_value("inventory", "selected_tab", 0))
 	_set_tab(selected_tab)
 	
-	# Добавляем обводку для превью игрока
-	var style = StyleBoxFlat.new()
-	style.bg_color = Color(0, 0, 0, 0)
-	style.border_width_left = 2
-	style.border_width_top = 2
-	style.border_width_right = 2
-	style.border_width_bottom = 2
-	style.border_color = Color(1, 1, 1, 1)
-	style.corner_radius_top_left = 5
-	style.corner_radius_top_right = 5
-	style.corner_radius_bottom_right = 5
-	style.corner_radius_bottom_left = 5
-	
-	var border_panel = Panel.new()
-	border_panel.add_theme_stylebox_override("panel", style)
-	border_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	border_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
-	player_preview_container.add_child(border_panel)
-	
 	# Настраиваем превью игрока
 	if player_preview:
 		# Гарантируем работу превью даже на паузе
@@ -109,6 +93,9 @@ func _ready():
 	_init_equipment_slot(pistol_slot, ItemData.EquipmentSlot.PISTOL)
 	_init_equipment_slot(rifle_slot, ItemData.EquipmentSlot.RIFLE)
 	_init_equipment_slot(backpack_slot, ItemData.EquipmentSlot.BACKPACK)
+	_init_equipment_slot(medkit_slot, ItemData.EquipmentSlot.MEDKIT)
+	_init_equipment_slot(grenade_slot, ItemData.EquipmentSlot.GRENADE)
+	_init_equipment_slot(accessory_slot, ItemData.EquipmentSlot.RING)
 	
 	if inventory_data:
 		set_inventory_data(inventory_data)
@@ -217,6 +204,8 @@ func _on_equipment_slot_clicked(slot_type: ItemData.EquipmentSlot, button: int):
 				print("Inventory full!")
 
 func _on_equipment_updated(slot_type: ItemData.EquipmentSlot, item: ItemData):
+	if player_preview:
+		player_preview.update_equipment(slot_type, item)
 	_update_equipment_slot_ui(slot_type, item)
 
 func _update_equipment_slot_ui(slot_type: ItemData.EquipmentSlot, item: ItemData):
@@ -230,6 +219,9 @@ func _update_equipment_slot_ui(slot_type: ItemData.EquipmentSlot, item: ItemData
 		ItemData.EquipmentSlot.PISTOL: slot_ui = pistol_slot
 		ItemData.EquipmentSlot.RIFLE: slot_ui = rifle_slot
 		ItemData.EquipmentSlot.BACKPACK: slot_ui = backpack_slot
+		ItemData.EquipmentSlot.MEDKIT: slot_ui = medkit_slot
+		ItemData.EquipmentSlot.GRENADE: slot_ui = grenade_slot
+		ItemData.EquipmentSlot.RING: slot_ui = accessory_slot
 	
 	if slot_ui:
 		if item:

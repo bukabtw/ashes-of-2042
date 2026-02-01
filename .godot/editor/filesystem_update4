@@ -1,2 +1,5 @@
+res://scenes/ui/player_preview.tscn
 res://scripts/inventory/inventory_ui.gd
-res://scenes/inventory/inventory.tscn
+res://scenes/ui/inventory_panel.tscn
+res://scripts/inventory/item_data.gd
+res://scripts/ui/player_preview.gd
