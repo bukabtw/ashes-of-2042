@@ -94,7 +94,8 @@ alignment = 1
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Guns"
+theme_override_font_sizes/font_size = 11
+text = "Weapons"
 horizontal_alignment = 1
 clip_text = true
 
@@ -118,6 +119,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/PlayerPreviewContainer" unique_id=245260202]
 layout_mode = 2
+theme_override_font_sizes/font_size = 11
 text = "Player"
 horizontal_alignment = 1
 
@@ -152,6 +154,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/ArmorContainer" unique_id=1041605094]
 layout_mode = 2
+theme_override_font_sizes/font_size = 11
 text = "Armor"
 horizontal_alignment = 1
 
@@ -208,13 +211,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Content" type="StackContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll" unique_id=1156050675]
+[node name="Content" type="VBoxContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll" unique_id=1156050675]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="QuestPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=495295231]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
@@ -231,6 +235,7 @@ text = "Задания: контент"
 
 [node name="StatsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1188643369]
 visible = false
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
@@ -247,6 +252,7 @@ text = "Статистика: контент"
 
 [node name="SkillsPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1225609284]
 visible = false
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
@@ -263,6 +269,7 @@ text = "Навыки: контент"
 
 [node name="CollectionPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/MainSection/Left/TopSection/RightPanel/Scroll/Content" unique_id=1074561520]
 visible = false
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
